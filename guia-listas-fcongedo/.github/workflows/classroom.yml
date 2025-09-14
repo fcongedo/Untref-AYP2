@@ -1,0 +1,280 @@
+name: Autograding Tests
+"on":
+  - push
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: TestNewCircularList
+        id: testnewcircularlist
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestNewCircularList
+          setup-command: ""
+          command: go test ./... -run ^TestNewCircularList$
+          timeout: 10
+          max-score: 1
+      - name: TestCircularListPrepend
+        id: testcircularlistprepend
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestCircularListPrepend
+          setup-command: ""
+          command: go test ./... -run ^TestCircularListPrepend$
+          timeout: 10
+          max-score: 1
+      - name: TestCircularListAppend
+        id: testcircularlistappend
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestCircularListAppend
+          setup-command: ""
+          command: go test ./... -run ^TestCircularListAppend$
+          timeout: 10
+          max-score: 1
+      - name: TestCircularListClear
+        id: testcircularlistclear
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestCircularListClear
+          setup-command: ""
+          command: go test ./... -run ^TestCircularListClear$
+          timeout: 10
+          max-score: 1
+      - name: TestCircularListIsEmpty
+        id: testcircularlistisempty
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestCircularListIsEmpty
+          setup-command: ""
+          command: go test ./... -run ^TestCircularListIsEmpty$
+          timeout: 10
+          max-score: 1
+      - name: TestNewList
+        id: testnewlist
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestNewList
+          setup-command: ""
+          command: go test ./... -run ^TestNewList$
+          timeout: 10
+          max-score: 1
+      - name: TestListPrepend
+        id: testlistprepend
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListPrepend
+          setup-command: ""
+          command: go test ./... -run ^TestListPrepend$
+          timeout: 10
+          max-score: 1
+      - name: TestListAppend
+        id: testlistappend
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListAppend
+          setup-command: ""
+          command: go test ./... -run ^TestListAppend$
+          timeout: 10
+          max-score: 1
+      - name: TestListClear
+        id: testlistclear
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListClear
+          setup-command: ""
+          command: go test ./... -run ^TestListClear$
+          timeout: 10
+          max-score: 1
+      - name: TestListIsEmpty
+        id: testlistisempty
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListIsEmpty
+          setup-command: ""
+          command: go test ./... -run ^TestListIsEmpty$
+          timeout: 10
+          max-score: 1
+      - name: TestListSize
+        id: testlistsize
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListSize
+          setup-command: ""
+          command: go test ./... -run ^TestListSize$
+          timeout: 10
+          max-score: 1
+      - name: TestListHead
+        id: testlisthead
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListHead
+          setup-command: ""
+          command: go test ./... -run ^TestListHead$
+          timeout: 10
+          max-score: 1
+      - name: TestListTail
+        id: testlisttail
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListTail
+          setup-command: ""
+          command: go test ./... -run ^TestListTail$
+          timeout: 10
+          max-score: 1
+      - name: TestListRemove
+        id: testlistremove
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListRemove
+          setup-command: ""
+          command: go test ./... -run ^TestListRemove$
+          timeout: 10
+          max-score: 1
+      - name: TestListRemoveLastElement
+        id: testlistremovelastelement
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListRemoveLastElement
+          setup-command: ""
+          command: go test ./... -run ^TestListRemoveLastElement$
+          timeout: 10
+          max-score: 1
+      - name: TestListRemoveFirst
+        id: testlistremovefirst
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListRemoveFirst
+          setup-command: ""
+          command: go test ./... -run ^TestListRemoveFirst$
+          timeout: 10
+          max-score: 1
+      - name: TestListRemoveLast
+        id: testlistremovelast
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListRemoveLast
+          setup-command: ""
+          command: go test ./... -run ^TestListRemoveLast$
+          timeout: 10
+          max-score: 1
+      - name: TestListAllRemovesOnEmptyList
+        id: testlistallremovesonemptylist
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListAllRemovesOnEmptyList
+          setup-command: ""
+          command: go test ./... -run ^TestListAllRemovesOnEmptyList$
+          timeout: 10
+          max-score: 1
+      - name: TestListFind
+        id: testlistfind
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestListFind
+          setup-command: ""
+          command: go test ./... -run ^TestListFind$
+          timeout: 10
+          max-score: 1
+      - name: TestQueue
+        id: testqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestQueue
+          setup-command: ""
+          command: go test ./... -run ^TestQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestEmptyQueue
+        id: testemptyqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestEmptyQueue
+          setup-command: ""
+          command: go test ./... -run ^TestEmptyQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestFront
+        id: testfront
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestFront
+          setup-command: ""
+          command: go test ./... -run ^TestFront$
+          timeout: 10
+          max-score: 1
+      - name: TestSortedList
+        id: testsortedlist
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestSortedList
+          setup-command: ""
+          command: go test ./... -run ^TestSortedList$
+          timeout: 10
+          max-score: 1
+      - name: TestPushPop
+        id: testpushpop
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestPushPop
+          setup-command: ""
+          command: go test ./... -run ^TestPushPop$
+          timeout: 10
+          max-score: 1
+      - name: TestEmptyStack
+        id: testemptystack
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestEmptyStack
+          setup-command: ""
+          command: go test ./... -run ^TestEmptyStack$
+          timeout: 10
+          max-score: 1
+      - name: TestTop
+        id: testtop
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestTop
+          setup-command: ""
+          command: go test ./... -run ^TestTop$
+          timeout: 10
+          max-score: 1
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          TESTNEWCIRCULARLIST_RESULTS: ${{steps.testnewcircularlist.outputs.result}}
+          TESTCIRCULARLISTPREPEND_RESULTS: ${{steps.testcircularlistprepend.outputs.result}}
+          TESTCIRCULARLISTAPPEND_RESULTS: ${{steps.testcircularlistappend.outputs.result}}
+          TESTCIRCULARLISTCLEAR_RESULTS: ${{steps.testcircularlistclear.outputs.result}}
+          TESTCIRCULARLISTISEMPTY_RESULTS: ${{steps.testcircularlistisempty.outputs.result}}
+          TESTNEWLIST_RESULTS: ${{steps.testnewlist.outputs.result}}
+          TESTLISTPREPEND_RESULTS: ${{steps.testlistprepend.outputs.result}}
+          TESTLISTAPPEND_RESULTS: ${{steps.testlistappend.outputs.result}}
+          TESTLISTCLEAR_RESULTS: ${{steps.testlistclear.outputs.result}}
+          TESTLISTISEMPTY_RESULTS: ${{steps.testlistisempty.outputs.result}}
+          TESTLISTSIZE_RESULTS: ${{steps.testlistsize.outputs.result}}
+          TESTLISTHEAD_RESULTS: ${{steps.testlisthead.outputs.result}}
+          TESTLISTTAIL_RESULTS: ${{steps.testlisttail.outputs.result}}
+          TESTLISTREMOVE_RESULTS: ${{steps.testlistremove.outputs.result}}
+          TESTLISTREMOVELASTELEMENT_RESULTS: ${{steps.testlistremovelastelement.outputs.result}}
+          TESTLISTREMOVEFIRST_RESULTS: ${{steps.testlistremovefirst.outputs.result}}
+          TESTLISTREMOVELAST_RESULTS: ${{steps.testlistremovelast.outputs.result}}
+          TESTLISTALLREMOVESONEMPTYLIST_RESULTS: ${{steps.testlistallremovesonemptylist.outputs.result}}
+          TESTLISTFIND_RESULTS: ${{steps.testlistfind.outputs.result}}
+          TESTQUEUE_RESULTS: ${{steps.testqueue.outputs.result}}
+          TESTEMPTYQUEUE_RESULTS: ${{steps.testemptyqueue.outputs.result}}
+          TESTFRONT_RESULTS: ${{steps.testfront.outputs.result}}
+          TESTSORTEDLIST_RESULTS: ${{steps.testsortedlist.outputs.result}}
+          TESTPUSHPOP_RESULTS: ${{steps.testpushpop.outputs.result}}
+          TESTEMPTYSTACK_RESULTS: ${{steps.testemptystack.outputs.result}}
+          TESTTOP_RESULTS: ${{steps.testtop.outputs.result}}
+        with:
+          runners: testnewcircularlist,testcircularlistprepend,testcircularlistappend,testcircularlistclear,testcircularlistisempty,testnewlist,testlistprepend,testlistappend,testlistclear,testlistisempty,testlistsize,testlisthead,testlisttail,testlistremove,testlistremovelastelement,testlistremovefirst,testlistremovelast,testlistallremovesonemptylist,testlistfind,testqueue,testemptyqueue,testfront,testsortedlist,testpushpop,testemptystack,testtop

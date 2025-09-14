@@ -1,0 +1,270 @@
+name: Autograding Tests
+"on":
+  - push
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: TestInvertirCadena
+        id: testinvertircadena
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestInvertirCadena
+          setup-command: ""
+          command: go test ./... -run ^TestInvertirCadena$
+          timeout: 10
+          max-score: 1
+      - name: TestPalindromo
+        id: testpalindromo
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestPalindromo
+          setup-command: ""
+          command: go test ./... -run ^TestPalindromo$
+          timeout: 10
+          max-score: 1
+      - name: TestBalanceada
+        id: testbalanceada
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestBalanceada
+          setup-command: ""
+          command: go test ./... -run ^TestBalanceada$
+          timeout: 10
+          max-score: 1
+      - name: TestUnirColas
+        id: testunircolas
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestUnirColas
+          setup-command: ""
+          command: go test ./... -run ^TestUnirColas$
+          timeout: 10
+          max-score: 1
+      - name: TestUnirColasVacias
+        id: testunircolasvacias
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestUnirColasVacias
+          setup-command: ""
+          command: go test ./... -run ^TestUnirColasVacias$
+          timeout: 10
+          max-score: 1
+      - name: TestUnirColaVacia
+        id: testunircolavacia
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestUnirColaVacia
+          setup-command: ""
+          command: go test ./... -run ^TestUnirColaVacia$
+          timeout: 10
+          max-score: 1
+      - name: TestNewQueue
+        id: testnewqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestNewQueue
+          setup-command: ""
+          command: go test ./... -run ^TestNewQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestQueueEnqueue
+        id: testqueueenqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestQueueEnqueue
+          setup-command: ""
+          command: go test ./... -run ^TestQueueEnqueue$
+          timeout: 10
+          max-score: 1
+      - name: TestQueueDequeue
+        id: testqueuedequeue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestQueueDequeue
+          setup-command: ""
+          command: go test ./... -run ^TestQueueDequeue$
+          timeout: 10
+          max-score: 1
+      - name: TestQueueDequeueOnEmptyQueue
+        id: testqueuedequeueonemptyqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestQueueDequeueOnEmptyQueue
+          setup-command: ""
+          command: go test ./... -run ^TestQueueDequeueOnEmptyQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestQueueFrontOnEmptyQueue
+        id: testqueuefrontonemptyqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestQueueFrontOnEmptyQueue
+          setup-command: ""
+          command: go test ./... -run ^TestQueueFrontOnEmptyQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestQueueFront
+        id: testqueuefront
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestQueueFront
+          setup-command: ""
+          command: go test ./... -run ^TestQueueFront$
+          timeout: 10
+          max-score: 1
+      - name: TestNewStack
+        id: testnewstack
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestNewStack
+          setup-command: ""
+          command: go test ./... -run ^TestNewStack$
+          timeout: 10
+          max-score: 1
+      - name: TestStackPush
+        id: teststackpush
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackPush
+          setup-command: ""
+          command: go test ./... -run ^TestStackPush$
+          timeout: 10
+          max-score: 1
+      - name: TestStackTop
+        id: teststacktop
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackTop
+          setup-command: ""
+          command: go test ./... -run ^TestStackTop$
+          timeout: 10
+          max-score: 1
+      - name: TestStackTopWhenEmpty
+        id: teststacktopwhenempty
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackTopWhenEmpty
+          setup-command: ""
+          command: go test ./... -run ^TestStackTopWhenEmpty$
+          timeout: 10
+          max-score: 1
+      - name: TestStackPop
+        id: teststackpop
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackPop
+          setup-command: ""
+          command: go test ./... -run ^TestStackPop$
+          timeout: 10
+          max-score: 1
+      - name: TestStackPopWhenEmpty
+        id: teststackpopwhenempty
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackPopWhenEmpty
+          setup-command: ""
+          command: go test ./... -run ^TestStackPopWhenEmpty$
+          timeout: 10
+          max-score: 1
+      - name: TestStackIsEmpty
+        id: teststackisempty
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackIsEmpty
+          setup-command: ""
+          command: go test ./... -run ^TestStackIsEmpty$
+          timeout: 10
+          max-score: 1
+      - name: TestNewStackQueue
+        id: testnewstackqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestNewStackQueue
+          setup-command: ""
+          command: go test ./... -run ^TestNewStackQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestStackQueueEnqueue
+        id: teststackqueueenqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackQueueEnqueue
+          setup-command: ""
+          command: go test ./... -run ^TestStackQueueEnqueue$
+          timeout: 10
+          max-score: 1
+      - name: TestStackQueueDequeue
+        id: teststackqueuedequeue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackQueueDequeue
+          setup-command: ""
+          command: go test ./... -run ^TestStackQueueDequeue$
+          timeout: 10
+          max-score: 1
+      - name: TestStackQueueDequeueOnEmptyQueue
+        id: teststackqueuedequeueonemptyqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackQueueDequeueOnEmptyQueue
+          setup-command: ""
+          command: go test ./... -run ^TestStackQueueDequeueOnEmptyQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestStackQueueFrontOnEmptyQueue
+        id: teststackqueuefrontonemptyqueue
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackQueueFrontOnEmptyQueue
+          setup-command: ""
+          command: go test ./... -run ^TestStackQueueFrontOnEmptyQueue$
+          timeout: 10
+          max-score: 1
+      - name: TestStackQueueFront
+        id: teststackqueuefront
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: TestStackQueueFront
+          setup-command: ""
+          command: go test ./... -run ^TestStackQueueFront$
+          timeout: 10
+          max-score: 1
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          TESTINVERTIRCADENA_RESULTS: ${{steps.testinvertircadena.outputs.result}}
+          TESTPALINDROMO_RESULTS: ${{steps.testpalindromo.outputs.result}}
+          TESTBALANCEADA_RESULTS: ${{steps.testbalanceada.outputs.result}}
+          TESTUNIRCOLAS_RESULTS: ${{steps.testunircolas.outputs.result}}
+          TESTUNIRCOLASVACIAS_RESULTS: ${{steps.testunircolasvacias.outputs.result}}
+          TESTUNIRCOLAVACIA_RESULTS: ${{steps.testunircolavacia.outputs.result}}
+          TESTNEWQUEUE_RESULTS: ${{steps.testnewqueue.outputs.result}}
+          TESTQUEUEENQUEUE_RESULTS: ${{steps.testqueueenqueue.outputs.result}}
+          TESTQUEUEDEQUEUE_RESULTS: ${{steps.testqueuedequeue.outputs.result}}
+          TESTQUEUEDEQUEUEONEMPTYQUEUE_RESULTS: ${{steps.testqueuedequeueonemptyqueue.outputs.result}}
+          TESTQUEUEFRONTONEMPTYQUEUE_RESULTS: ${{steps.testqueuefrontonemptyqueue.outputs.result}}
+          TESTQUEUEFRONT_RESULTS: ${{steps.testqueuefront.outputs.result}}
+          TESTNEWSTACK_RESULTS: ${{steps.testnewstack.outputs.result}}
+          TESTSTACKPUSH_RESULTS: ${{steps.teststackpush.outputs.result}}
+          TESTSTACKTOP_RESULTS: ${{steps.teststacktop.outputs.result}}
+          TESTSTACKTOPWHENEMPTY_RESULTS: ${{steps.teststacktopwhenempty.outputs.result}}
+          TESTSTACKPOP_RESULTS: ${{steps.teststackpop.outputs.result}}
+          TESTSTACKPOPWHENEMPTY_RESULTS: ${{steps.teststackpopwhenempty.outputs.result}}
+          TESTSTACKISEMPTY_RESULTS: ${{steps.teststackisempty.outputs.result}}
+          TESTNEWSTACKQUEUE_RESULTS: ${{steps.testnewstackqueue.outputs.result}}
+          TESTSTACKQUEUEENQUEUE_RESULTS: ${{steps.teststackqueueenqueue.outputs.result}}
+          TESTSTACKQUEUEDEQUEUE_RESULTS: ${{steps.teststackqueuedequeue.outputs.result}}
+          TESTSTACKQUEUEDEQUEUEONEMPTYQUEUE_RESULTS: ${{steps.teststackqueuedequeueonemptyqueue.outputs.result}}
+          TESTSTACKQUEUEFRONTONEMPTYQUEUE_RESULTS: ${{steps.teststackqueuefrontonemptyqueue.outputs.result}}
+          TESTSTACKQUEUEFRONT_RESULTS: ${{steps.teststackqueuefront.outputs.result}}
+        with:
+          runners: testinvertircadena,testpalindromo,testbalanceada,testunircolas,testunircolasvacias,testunircolavacia,testnewqueue,testqueueenqueue,testqueuedequeue,testqueuedequeueonemptyqueue,testqueuefrontonemptyqueue,testqueuefront,testnewstack,teststackpush,teststacktop,teststacktopwhenempty,teststackpop,teststackpopwhenempty,teststackisempty,testnewstackqueue,teststackqueueenqueue,teststackqueuedequeue,teststackqueuedequeueonemptyqueue,teststackqueuefrontonemptyqueue,teststackqueuefront
