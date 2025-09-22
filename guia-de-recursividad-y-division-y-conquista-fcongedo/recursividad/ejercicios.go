@@ -10,13 +10,15 @@ func Suma(n int) int {
 		return 1
 	}
 	return n + Suma(n-1)
+
 }
 
 func Factorial(n int) int {
-	if n == 1 || n == 0 {
+	if n == 0 {
 		return 1
 	}
 	return n * Factorial(n-1)
+
 }
 
 func CantidadDeUnos(n int) int {
@@ -27,11 +29,10 @@ func CantidadDeUnos(n int) int {
 }
 
 func Invertir(cadena string) string {
-	if len(cadena) <= 1 {
+	if len(cadena) < 1 {
 		return cadena
 	}
-	return Invertir(cadena[1:]) + string(cadena[0])
-
+	return Invertir(cadena[:1]) + string(cadena[0])
 }
 
 func InvertirCola[T any](q *queue.Queue[T]) {
@@ -98,12 +99,14 @@ func EsPotencia(n, b int) bool {
 	return EsPotencia(n/b, b)
 }
 
+// O(n^2)
 func Fibonacci(n int) int {
 	if n == 0 {
 		return 0
 	}
 	if n == 1 {
 		return 1
+
 	}
 	return Fibonacci(n-1) + Fibonacci(n-2)
 }
