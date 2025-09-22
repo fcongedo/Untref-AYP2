@@ -1,6 +1,9 @@
 package recursividad
 
-import "untref-ayp2/guia-recursividad-division-conquista/queue"
+import (
+	"strconv"
+	"untref-ayp2/guia-recursividad-division-conquista/queue"
+)
 
 func Suma(n int) int {
 	if n == 1 {
@@ -57,31 +60,57 @@ func Multiplicar(a, b int) int {
 }
 
 func DivisionEntera(dividendo, divisor int) (cociente, resto int) {
-	// Implementar
-	return -1, -1
+	if dividendo < divisor {
+		return 0, dividendo
+	}
+
+	cociente, resto = DivisionEntera(dividendo-divisor, divisor)
+
+	cociente += 1
+	return cociente, resto
 }
 
 func SumaArray(v []int) int {
-	// Implementar
-	return -1
+	if len(v) == 0 {
+		return 0
+	}
+	return v[0] + SumaArray(v[1:])
+
 }
 
 func DecimalABinario(n int) string {
-	// Implementar
-	return ""
+	if n == 1 {
+		return "1"
+	}
+	if n == 0 {
+		return "0"
+	}
+	return DecimalABinario(n/2) + strconv.Itoa(n%2)
 }
 
 func EsPotencia(n, b int) bool {
-	// Implementar
-	return false
+	if n == 1 {
+		return true
+	}
+	if n < 1 || n%b != 0 {
+		return false
+	}
+	return EsPotencia(n/b, b)
 }
 
 func Fibonacci(n int) int {
-	// Implementar
-	return -1
+	if n == 0 {
+		return 0
+	}
+	if n == 1 {
+		return 1
+	}
+	return Fibonacci(n-1) + Fibonacci(n-2)
 }
 
 func Pascal(n, k int) int {
-	// Implementar
-	return -1
+	if k == 0 || k == n {
+		return 1
+	}
+	return Pascal(n-1, k-1) + Pascal(n-1, k)
 }
